@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tools I Use</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+
+    <!-- AOS CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Optional subtle hover effect (safe to remove if you want nothing else) -->
+  </head>
+  <body>
+    <div id="navbar"></div>
+    <h2 class="text-center my-5">🧰 Tools I Use</h2>
+
+    <div class="container">
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3 icon-list">
+        <div class="col" data-aos="zoom-in" data-aos-delay="100">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-code me-2"></i> VS Code
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="200">
+          <div class="d-flex align-items-center">
+            <i class="fab fa-git-alt me-2"></i> Git
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="300">
+          <div class="d-flex align-items-center">
+            <i class="fab fa-github me-2"></i> GitHub
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="400">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-database me-2"></i> MySQL / SQL Server
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="500">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-chart-line me-2"></i> Power BI
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="600">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-file-excel me-2"></i> Excel
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="700">
+          <div class="d-flex align-items-center">
+            <i class="fab fa-wordpress me-2"></i> WordPress
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="800">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-terminal me-2"></i> Command Line
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="900">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-cloud me-2"></i> Netlify
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="1000">
+          <div class="d-flex align-items-center">
+            <i class="fab fa-youtube me-2"></i> YouTube
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="1100">
+          <div class="d-flex align-items-center">
+            <i class="fab fa-tiktok me-2"></i> TikTok
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="1200">
+          <div class="d-flex align-items-center">
+            <i class="fab fa-linkedin me-2"></i> LinkedIn
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="1300">
+          <div class="d-flex align-items-center">
+            <i class="fab fa-google me-2"></i> Google Workspace
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="1400">
+          <div class="d-flex align-items-center">
+            <i class="fab fa-whatsapp me-2"></i> WhatsApp
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="1500">
+          <div class="d-flex align-items-center">
+            <i class="fas fa-paint-brush me-2"></i> Canva
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="1600">
+          <div class="d-flex align-items-center">
+            <i class="fab fa-react me-2"></i> React
+          </div>
+        </div>
+        <div class="col" data-aos="zoom-in" data-aos-delay="1700">
+          <div class="d-flex align-items-center">
+            <i class="fab fa-node-js me-2"></i> Node.js
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Load navbar (unchanged) -->
+    <script>
+      fetch("navbar.html")
+        .then((response) => response.text())
+        .then((data) => {
+          document.getElementById("navbar").innerHTML = data;
+        });
+    </script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- AOS JS -->
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: true,
+        duration: 800,
+        easing: "ease-in-out",
+      });
+    </script>
+  </body>
+</html>

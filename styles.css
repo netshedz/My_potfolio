@@ -1,0 +1,190 @@
+/* General body styles */
+body {
+  padding-top: 70px;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(7, 121, 222) 0%,
+    rgb(20, 72, 140) 90%
+  );
+  color: white;
+}
+
+/* Navbar styles */
+.navbar {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(7, 121, 222) 0%,
+    rgb(20, 72, 140) 90%
+  ) !important;
+}
+.navbar .nav-link,
+.navbar-brand {
+  color: white !important;
+}
+.navbar .nav-link:hover {
+  color: #2ba4c9 !important;
+}
+
+.border,
+.rounded,
+.shadow {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+.home-section {
+  background: linear-gradient(
+    135deg,
+    rgb(82, 229, 231) 10%,
+    rgb(19, 12, 183) 100%
+  );
+  color: white;
+  padding: 60px 0;
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(7, 121, 222) 0%,
+    rgb(20, 72, 140) 90%
+  );
+  z-index: 0;
+  border-radius: 10px;
+}
+
+.home-image img {
+  position: relative;
+  z-index: 1;
+  mix-blend-mode: overlay;
+  opacity: 0.9;
+}
+
+.btn-custom1 {
+  background-color: white;
+  color: #130cb7;
+  border: none;
+  margin-right: 10px;
+}
+
+.btn-custom2 {
+  background-color: transparent;
+  border: 1px solid white;
+  color: white;
+}
+
+.btn-custom1:hover,
+.btn-custom2:hover {
+  opacity: 0.85;
+}
+
+#contactDetails {
+  margin-top: 15px;
+}
+
+a {
+  color: #ffe;
+  text-decoration: underline;
+}
+
+.footer-links {
+  margin-top: 15px;
+}
+
+.footer-btn {
+  display: inline-block;
+  margin: 0 8px;
+  color: white;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+.footer-btn:hover {
+  color: #52e5e7;
+}
+/* --- aboutpage---*/
+.intro-section {
+  background: radial-gradient(
+    circle at 10% 20%,
+    rgb(7, 121, 222) 0%,
+    rgb(20, 72, 140) 90%
+  );
+  color: white;
+  padding: 60px 0;
+}
+
+.intro-section img {
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.intro-section strong {
+  color: #ffffff;
+}
+/*skilsspage*/
+.border,
+.shadow {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+h4 {
+  color: #ffe;
+}
+
+ul li {
+  margin-bottom: 5px;
+}
+/*Education page*/
+.border {
+  border: 2px solid white !important;
+}
+
+.rounded {
+  background-color: rgba(255, 255, 255, 0.05);
+  color: white;
+}
+
+h2,
+h4 {
+  color: #fff;
+}
+
+hr {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.text-muted {
+  color: #e0e0e0 !important;
+}
+/*project page*/
+h2,
+h3,
+h4,
+h5 {
+  color: #fff;
+}
+
+ul {
+  padding-left: 1.2rem;
+}
+
+.btn-outline-primary {
+  border-color: #fff;
+  color: #fff;
+}
+
+.btn-outline-primary:hover {
+  background-color: #ffffff33;
+  color: white;
+}
+/*tools*/
+.icon-list .col {
+  transition: transform 0.3s ease;
+}
+.icon-list .col:hover {
+  transform: scale(1.03);
+}
