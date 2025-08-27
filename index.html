@@ -3,78 +3,625 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Portfolio</title>
+    <title>Dzhivhuho Netshedzo | Frontend Developer & Data Analyst</title>
+    <meta
+      name="description"
+      content="Portfolio of Dzhivhuho Netshedzo - Frontend Developer, Data Analyst, and IT Technician showcasing projects and skills"
+    />
 
     <!-- Bootstrap CSS -->
     <link
       rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
     />
-    <!-- Font Awesome CDN (for icons) -->
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <!-- AOS Animation (optional) -->
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto:wght@300;400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <!-- AOS Animation -->
     <link
       href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+
+    <style>
+      :root {
+        --primary: #ff63a5;
+        --secondary: #e91e63;
+        --accent: #ff9ecb;
+        --dark: #1a1a2e;
+        --light: #fff5f9;
+        --gray: #6c757d;
+        --success: #28a745;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Roboto", sans-serif;
+        color: #333;
+        background-color: var(--light);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: "Poppins", sans-serif;
+        font-weight: 600;
+        color: var(--dark);
+      }
+
+      /* Navigation */
+      .navbar {
+        background: rgba(255, 245, 249, 0.95) !important;
+        backdrop-filter: blur(10px);
+        padding: 15px 0;
+        transition: all 0.3s ease;
+        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand {
+        font-weight: 700;
+        color: var(--primary) !important;
+        font-size: 1.5rem;
+      }
+
+      .nav-link {
+        color: var(--dark) !important;
+        font-weight: 500;
+        margin: 0 10px;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-link:hover,
+      .nav-link.active {
+        color: var(--primary) !important;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--primary);
+        transition: width 0.3s ease;
+      }
+
+      .nav-link:hover::after,
+      .nav-link.active::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        padding: 100px 0 80px;
+        background: linear-gradient(135deg, #fff0f5 0%, #ffe6ee 100%);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hero::before {
+        content: "";
+        position: absolute;
+        width: 500px;
+        height: 500px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 99, 165, 0.1) 0%,
+          rgba(255, 158, 203, 0.1) 100%
+        );
+        top: -250px;
+        right: -250px;
+        z-index: 0;
+      }
+
+      .hero::after {
+        content: "";
+        position: absolute;
+        width: 400px;
+        height: 400px;
+        border-radius: 50%;
+        background: linear-gradient(
+          135deg,
+          rgba(255, 158, 203, 0.1) 0%,
+          rgba(255, 99, 165, 0.1) 100%
+        );
+        bottom: -200px;
+        left: -200px;
+        z-index: 0;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .hero-title {
+        font-size: 3.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--dark);
+      }
+
+      .hero-subtitle {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        font-weight: 500;
+      }
+
+      .hero-text {
+        font-size: 1.1rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+      }
+
+      .btn-primary {
+        background-color: var(--primary);
+        border-color: var(--primary);
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-primary:hover {
+        background-color: #e91e63;
+        border-color: #e91e63;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(255, 99, 165, 0.3);
+      }
+
+      .btn-outline-primary {
+        color: var(--primary);
+        border-color: var(--primary);
+        padding: 12px 30px;
+        border-radius: 30px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+      }
+
+      .btn-outline-primary:hover {
+        background-color: var(--primary);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(255, 99, 165, 0.3);
+      }
+
+      .hero-image {
+        position: relative;
+      }
+
+      .hero-image img {
+        border-radius: 20px;
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        transition: all 0.5s ease;
+      }
+
+      .hero-image:hover img {
+        transform: scale(1.02);
+      }
+
+      .social-links {
+        margin-top: 2rem;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        background: white;
+        color: var(--primary);
+        margin-right: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        transition: all 0.3s ease;
+      }
+
+      .social-links a:hover {
+        background: var(--primary);
+        color: white;
+        transform: translateY(-5px);
+      }
+
+      /* Section Styling */
+      .section {
+        padding: 100px 0;
+      }
+
+      .section-title {
+        position: relative;
+        margin-bottom: 3rem;
+        text-align: center;
+      }
+
+      .section-title::after {
+        content: "";
+        display: block;
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+        margin: 15px auto;
+        border-radius: 2px;
+      }
+
+      /* About Section */
+      .about {
+        background-color: white;
+      }
+
+      .skill-bar {
+        height: 8px;
+        background-color: #ffe6ee;
+        border-radius: 4px;
+        margin-bottom: 15px;
+        overflow: hidden;
+      }
+
+      .skill-progress {
+        height: 100%;
+        border-radius: 4px;
+        background: linear-gradient(to right, var(--primary), var(--accent));
+        position: relative;
+      }
+
+      /* Tools Section */
+      .tools {
+        background: linear-gradient(to bottom, #fff5f9, #fff);
+      }
+
+      .tool-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        height: 100%;
+        text-align: center;
+        padding: 25px 15px;
+      }
+
+      .tool-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .tool-icon {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+        color: var(--primary);
+      }
+
+      .tool-name {
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 0;
+      }
+
+      /* Projects Section */
+      .projects {
+        background-color: white;
+      }
+
+      .project-card {
+        border: none;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+        height: 100%;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+
+      .project-img {
+        height: 200px;
+        object-fit: cover;
+        transition: all 0.5s ease;
+      }
+
+      .project-card:hover .project-img {
+        transform: scale(1.05);
+      }
+
+      .project-title {
+        font-weight: 600;
+        color: var(--dark);
+        margin-bottom: 0.75rem;
+      }
+
+      .project-text {
+        color: var(--gray);
+        margin-bottom: 1rem;
+      }
+
+      .project-details {
+        margin-top: 15px;
+        padding-top: 15px;
+        border-top: 1px solid #eee;
+      }
+
+      .tech-badge {
+        display: inline-block;
+        background: rgba(255, 99, 165, 0.1);
+        color: var(--primary);
+        padding: 4px 10px;
+        border-radius: 15px;
+        font-size: 0.8rem;
+        margin: 0 5px 5px 0;
+      }
+
+      .featured-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: var(--primary);
+        color: white;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        z-index: 10;
+      }
+
+      /* Experience Section */
+      .experience {
+        background: linear-gradient(to bottom, #fff5f9, #fff);
+      }
+
+      .timeline {
+        position: relative;
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .timeline::after {
+        content: "";
+        position: absolute;
+        width: 4px;
+        background-color: var(--primary);
+        top: 0;
+        bottom: 0;
+        left: 50%;
+        margin-left: -2px;
+      }
+
+      .timeline-item {
+        padding: 10px 40px;
+        position: relative;
+        width: 50%;
+        box-sizing: border-box;
+      }
+
+      .timeline-item:nth-child(odd) {
+        left: 0;
+      }
+
+      .timeline-item:nth-child(even) {
+        left: 50%;
+      }
+
+      .timeline-content {
+        padding: 20px;
+        background-color: white;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      }
+
+      .timeline-date {
+        font-weight: 600;
+        color: var(--primary);
+        margin-bottom: 5px;
+      }
+
+      /* Contact Section */
+      .contact {
+        background: linear-gradient(
+          135deg,
+          var(--primary) 0%,
+          var(--accent) 100%
+        );
+        color: white;
+      }
+
+      .contact .section-title {
+        color: white;
+      }
+
+      .contact .section-title::after {
+        background: rgba(255, 255, 255, 0.5);
+      }
+
+      .contact-form {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+      }
+
+      .form-control {
+        padding: 15px;
+        border-radius: 10px;
+        border: 1px solid #e9ecef;
+        margin-bottom: 20px;
+      }
+
+      .form-control:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 0.2rem rgba(255, 99, 165, 0.25);
+      }
+
+      /* Footer */
+      .footer {
+        background-color: var(--dark);
+        color: white;
+        padding: 30px 0;
+        text-align: center;
+      }
+
+      /* Responsive Adjustments */
+      @media (max-width: 992px) {
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.3rem;
+        }
+
+        .timeline::after {
+          left: 31px;
+        }
+
+        .timeline-item {
+          width: 100%;
+          padding-left: 70px;
+          padding-right: 25px;
+        }
+
+        .timeline-item:nth-child(even) {
+          left: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        .hero-title {
+          font-size: 2rem;
+        }
+
+        .section-title {
+          font-size: 1.8rem;
+        }
+
+        .hero-image {
+          margin-top: 50px;
+        }
+      }
+
+      @media (max-width: 576px) {
+        .hero-title {
+          font-size: 1.8rem;
+        }
+
+        .btn-primary,
+        .btn-outline-primary {
+          padding: 10px 20px;
+        }
+      }
+    </style>
   </head>
 
   <body>
-    <div id="navbar"></div>
-    <section class="home-section">
-      <div class="container-xl">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="#">Dzhivhuho</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link active" href="#home">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#tools">Tools</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#projects">Projects</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+      <div class="container">
         <div class="row align-items-center">
-          <div class="col-md-6 mb-4">
-            <h1>Hello, I'm Dzhivhuho Netshedzo</h1>
-            <h3>A FrontEnd-dev, Data analyst and IT techncian</h3>
-            <p>
-              This portfolio provides a comprehensive showcase of my technical
-              journey—from front-end development and data analytics to hands-on
-              IT support and networking. It highlights real-world projects,
-              troubleshooting guides, and interactive dashboards that reflect my
-              problem-solving mindset and passion for intuitive digital
-              experiences.
+          <div class="col-lg-6 hero-content" data-aos="fade-right">
+            <h6 class="hero-subtitle">Hello, I'm</h6>
+            <h1 class="hero-title">Dzhivhuho Netshedzo</h1>
+            <h3 class="hero-subtitle">
+              Frontend Developer, Data Analyst & IT Technician
+            </h3>
+            <p class="hero-text">
+              I create intuitive digital experiences, transform data into
+              actionable insights, and solve technical challenges with a
+              problem-solving mindset. Welcome to my portfolio.
             </p>
-
-            <button id="downloadCVBtn" class="btn btn-custom1">
-              Download CV
-            </button>
-            <button id="contactInfoBtn" class="btn btn-custom2">
-              Contact Info
-            </button>
-
-            <div id="contactDetails" style="display: none">
-              <p><strong>Email:</strong> netshedzodzhivhuho06@gmail.com</p>
-              <p><strong>Phone:</strong> 060 944 3368</p>
-              <p>
-                <strong>LinkedIn:</strong>
-                <a
-                  href="https://www.linkedin.com/in/netshedzo-dzhivhuho-162012224/"
-                  target="_blank"
-                  >View LinkedIn</a
-                >
-              </p>
+            <div class="d-flex flex-wrap gap-3">
+              <button id="downloadCVBtn" class="btn btn-primary">
+                Download CV
+              </button>
+              <button id="contactInfoBtn" class="btn btn-outline-primary">
+                Contact Info
+              </button>
             </div>
-            <div class="footer-links mt-4">
-              <a
-                href="mailto:netshedzodzhivhuho06@gmail.com"
-                class="footer-btn"
-                title="Email"
-              >
+
+            <div class="social-links">
+              <a href="mailto:netshedzodzhivhuho06@gmail.com" title="Email">
                 <i class="fas fa-envelope"></i>
               </a>
-              <a href="tel:0609443368" class="footer-btn" title="Phone">
+              <a href="tel:0609443368" title="Phone">
                 <i class="fas fa-phone"></i>
+              </a>
+              <a
+                href="https://www.linkedin.com/in/netshedzo-dzhivhuho-162012224/"
+                target="_blank"
+                title="LinkedIn"
+              >
+                <i class="fab fa-linkedin-in"></i>
               </a>
               <a
                 href="https://facebook.com/Nechy%20Jivhuho"
                 target="_blank"
-                rel="noopener"
-                class="footer-btn"
                 title="Facebook"
               >
                 <i class="fab fa-facebook-f"></i>
@@ -82,47 +629,672 @@
               <a
                 href="https://instagram.com/Precious%20Dzhivhuho"
                 target="_blank"
-                rel="noopener"
-                class="footer-btn"
                 title="Instagram"
               >
                 <i class="fab fa-instagram"></i>
               </a>
-              <a
-                href="https://www.linkedin.com/in/netshedzo-dzhivhuho-162012224/"
-                target="_blank"
-                rel="noopener"
-                class="footer-btn"
-                title="LinkedIn"
-              >
-                <i class="fab fa-linkedin-in"></i>
-              </a>
+            </div>
+
+            <div
+              id="contactDetails"
+              class="mt-4 p-3 bg-light rounded"
+              style="display: none"
+            >
+              <p><strong>Email:</strong> netshedzodzhivhuho06@gmail.com</p>
+              <p><strong>Phone:</strong> 060 944 3368</p>
+              <p>
+                <strong>LinkedIn:</strong>
+                <a
+                  href="https://www.linkedin.com/in/netshedzo-dzhivhuho-162012224/"
+                  target="_blank"
+                >
+                  View LinkedIn Profile
+                </a>
+              </p>
             </div>
           </div>
 
           <div
-            class="col-md-6 position-relative home-image"
+            class="col-lg-6 hero-image"
             data-aos="fade-left"
             data-aos-duration="1200"
           >
-            <div class="image-overlay"></div>
             <img
-              src="Myimage.jpg"
-              alt="Profile"
-              class="img-fluid rounded mx-auto d-block"
-              style="max-width: 80%; height: auto; max-height: 400px"
+              src="image2.jpg"
+              alt="Dzhivhuho Netshedzo"
+              class="img-fluid rounded"
             />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Bootstrap JS bundle -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- AOS JS -->
+    <!-- About Section -->
+    <section id="about" class="section about">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">About Me</h2>
+        <div class="row">
+          <div class="col-lg-6" data-aos="fade-right">
+            <h3 class="mb-4">Who I Am</h3>
+            <p>
+              I'm a passionate technology professional with expertise in
+              front-end development, data analytics, and IT support. I enjoy
+              creating seamless digital experiences, uncovering insights from
+              data, and solving technical challenges.
+            </p>
+            <p>
+              My approach combines technical skills with creative
+              problem-solving to deliver solutions that are both functional and
+              user-friendly. I'm constantly learning and adapting to new
+              technologies to stay at the forefront of the industry.
+            </p>
+          </div>
+          <div class="col-lg-6" data-aos="fade-left">
+            <h3 class="mb-4">My Approach</h3>
+            <div class="d-flex align-items-center mb-3">
+              <div class="bg-primary rounded-circle p-3 me-3">
+                <i class="fas fa-lightbulb text-white"></i>
+              </div>
+              <div>
+                <h5>Innovative Solutions</h5>
+                <p>Creating cutting-edge solutions with modern technologies</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center mb-3">
+              <div class="bg-primary rounded-circle p-3 me-3">
+                <i class="fas fa-chart-line text-white"></i>
+              </div>
+              <div>
+                <h5>Data-Driven Decisions</h5>
+                <p>Leveraging data to inform design and development choices</p>
+              </div>
+            </div>
+            <div class="d-flex align-items-center">
+              <div class="bg-primary rounded-circle p-3 me-3">
+                <i class="fas fa-users text-white"></i>
+              </div>
+              <div>
+                <h5>User-Centered Design</h5>
+                <p>Prioritizing user needs and experiences in every project</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section" style="background-color: #fff5f9">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">My Skills</h2>
+        <div class="row">
+          <div class="col-md-6" data-aos="fade-right">
+            <h4 class="mb-4">Technical Skills</h4>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <h6>HTML/CSS</h6>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <h6>JavaScript</h6>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <h6>React</h6>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <h6>Bootstrap</h6>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <h6>Responsive Design</h6>
+                <span>92%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 92%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <h6>Data Analysis</h6>
+                <span>85%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 85%"></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6" data-aos="fade-left">
+            <h4 class="mb-4">Professional Skills</h4>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <h6>Problem Solving</h6>
+                <span>95%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 95%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <h6>Communication</h6>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <h6>Project Management</h6>
+                <span>80%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 80%"></div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <div class="d-flex justify-content-between">
+                <h6>Team Collaboration</h6>
+                <span>90%</span>
+              </div>
+              <div class="skill-bar">
+                <div class="skill-progress" style="width: 90%"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="section tools">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Tools I Use</h2>
+        <div class="row">
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <div class="tool-card">
+              <i class="fas fa-code tool-icon"></i>
+              <h5 class="tool-name">VS Code</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="tool-card">
+              <i class="fab fa-bootstrap tool-icon"></i>
+              <h5 class="tool-name">Bootstrap</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <div class="tool-card">
+              <i class="fab fa-git-alt tool-icon"></i>
+              <h5 class="tool-name">Git</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="300"
+          >
+            <div class="tool-card">
+              <i class="fab fa-github tool-icon"></i>
+              <h5 class="tool-name">GitHub</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="400"
+          >
+            <div class="tool-card">
+              <i class="fas fa-database tool-icon"></i>
+              <h5 class="tool-name">MySQL/SQL Server</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="500"
+          >
+            <div class="tool-card">
+              <i class="fas fa-chart-line tool-icon"></i>
+              <h5 class="tool-name">Power BI</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="600"
+          >
+            <div class="tool-card">
+              <i class="fas fa-file-excel tool-icon"></i>
+              <h5 class="tool-name">Excel</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="700"
+          >
+            <div class="tool-card">
+              <i class="fab fa-wordpress tool-icon"></i>
+              <h5 class="tool-name">WordPress</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="800"
+          >
+            <div class="tool-card">
+              <i class="fas fa-terminal tool-icon"></i>
+              <h5 class="tool-name">Command Line</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="900"
+          >
+            <div class="tool-card">
+              <i class="fas fa-cloud tool-icon"></i>
+              <h5 class="tool-name">Netlify</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="1000"
+          >
+            <div class="tool-card">
+              <i class="fab fa-react tool-icon"></i>
+              <h5 class="tool-name">React</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="1100"
+          >
+            <div class="tool-card">
+              <i class="fab fa-node-js tool-icon"></i>
+              <h5 class="tool-name">Node.js</h5>
+            </div>
+          </div>
+          <div
+            class="col-6 col-md-3 col-lg-2 mb-4"
+            data-aos="zoom-in"
+            data-aos-delay="1200"
+          >
+            <div class="tool-card">
+              <i class="fab fa-google tool-icon"></i>
+              <h5 class="tool-name">Google Workspace</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">My Projects</h2>
+        <div class="row">
+          <!-- Featured E-commerce Project -->
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="project-card">
+              <span class="featured-badge">Featured Project</span>
+              <img
+                src="ecommerce.png"
+                class="card-img-top project-img"
+                alt="Tech Gadget E-commerce Website"
+              />
+              <div class="card-body">
+                <h5 class="project-title">TechGadget E-Commerce Store</h5>
+                <p class="project-text">
+                  A fully responsive e-commerce platform specializing in tech
+                  gadgets, built with HTML, CSS, JavaScript and Bootstrap.
+                </p>
+
+                <div class="project-details">
+                  <h6>Technologies Used:</h6>
+                  <div class="mb-2">
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Bootstrap</span>
+                    <span class="tech-badge">Responsive Design</span>
+                  </div>
+
+                  <h6>Key Features:</h6>
+                  <ul class="ps-3">
+                    <li>Product catalog with filtering options</li>
+                    <li>Shopping cart functionality</li>
+                    <li>Responsive design for all devices</li>
+                    <li>User-friendly checkout process</li>
+                  </ul>
+
+                  <h6>Challenges Overcome:</h6>
+                  <p>
+                    Implemented a responsive shopping cart that maintains state
+                    across pages without a backend, using local storage and DOM
+                    manipulation techniques.
+                  </p>
+
+                  <div class="d-flex gap-2 mt-3">
+                    <a
+                      href="https://techgad.netlify.app/"
+                      class="btn btn-sm btn-primary"
+                      target="_blank"
+                    >
+                      <i class="fas fa-external-link-alt me-1"></i> Live Demo
+                    </a>
+                    <a
+                      href="https://github.com/yourusername/techgadget-ecommerce"
+                      class="btn btn-sm btn-outline-primary"
+                      target="_blank"
+                    >
+                      <i class="fab fa-github me-1"></i> Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="project-card">
+              <img
+                src="dashboard.png"
+                class="card-img-top project-img"
+                alt="Data Dashboard"
+              />
+              <div class="card-body">
+                <h5 class="project-title">Sales Analytics Dashboard</h5>
+                <p class="project-text">
+                  Interactive dashboard visualizing sales data using Power BI
+                  and Excel.
+                </p>
+
+                <div class="project-details">
+                  <h6>Technologies Used:</h6>
+                  <div class="mb-2">
+                    <span class="tech-badge">Power BI</span>
+                    <span class="tech-badge">Excel</span>
+                    <span class="tech-badge">Data Visualization</span>
+                    <span class="tech-badge">DAX</span>
+                  </div>
+
+                  <h6>Key Features:</h6>
+                  <ul class="ps-3">
+                    <li>Interactive sales performance charts</li>
+                    <li>Regional sales comparisons</li>
+                    <li>Product category analysis</li>
+                    <li>Time-based trend visualization</li>
+                  </ul>
+
+                  <h6>Challenges Overcome:</h6>
+                  <p>
+                    Transformed raw, unstructured sales data into meaningful
+                    insights by creating complex DAX formulas and designing
+                    intuitive visualizations.
+                  </p>
+
+                  <div class="d-flex gap-2 mt-3">
+                    <a
+                      href="https://github.com/netshedz/carsales"
+                      class="btn btn-sm btn-outline-primary"
+                      target="_blank"
+                    >
+                      <i class="fab fa-github me-1"></i> View Project
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="project-card">
+              <img
+                src="laptop_screen_replacement.jpg"
+                class="card-img-top project-img"
+                alt="IT Solution"
+              />
+              <div class="card-body">
+                <h5 class="project-title">IT Technician Portfolio</h5>
+                <p class="project-text">
+                  Hardware repair and maintenance documentation.
+                </p>
+
+                <div class="project-details">
+                  <h6>Technologies/Skills:</h6>
+                  <div class="mb-2">
+                    <span class="tech-badge">Hardware Repair</span>
+                    <span class="tech-badge">Troubleshooting</span>
+                    <span class="tech-badge">Technical Documentation</span>
+                  </div>
+
+                  <h6>Key Activities:</h6>
+                  <ul class="ps-3">
+                    <li>Laptop screen replacement procedures</li>
+                    <li>Hardware diagnostics and troubleshooting</li>
+                    <li>Preventive maintenance documentation</li>
+                  </ul>
+
+                  <h6>Challenges Overcome:</h6>
+                  <p>
+                    Developed a systematic approach to diagnose hardware issues
+                    quickly, reducing repair time by 30% through improved
+                    troubleshooting methodologies.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Project -->
+          <div class="col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="project-card">
+              <img
+                src="https://via.placeholder.com/400x200?text=Responsive+Web+Design"
+                class="card-img-top project-img"
+                alt="Responsive Web Design"
+              />
+              <div class="card-body">
+                <h5 class="project-title">Responsive Portfolio Template</h5>
+                <p class="project-text">
+                  A customizable portfolio template built with Bootstrap 5.
+                </p>
+
+                <div class="project-details">
+                  <h6>Technologies Used:</h6>
+                  <div class="mb-2">
+                    <span class="tech-badge">HTML5</span>
+                    <span class="tech-badge">Bootstrap 5</span>
+                    <span class="tech-badge">CSS3</span>
+                    <span class="tech-badge">JavaScript</span>
+                    <span class="tech-badge">Responsive Design</span>
+                  </div>
+
+                  <h6>Key Features:</h6>
+                  <ul class="ps-3">
+                    <li>Fully responsive layout</li>
+                    <li>Modern, clean design</li>
+                    <li>Easy to customize</li>
+                    <li>Optimized for performance</li>
+                  </ul>
+
+                  <h6>Challenges Overcome:</h6>
+                  <p>
+                    Created a mobile-first responsive design that maintains
+                    visual appeal and functionality across all device sizes
+                    using Bootstrap's grid system and custom CSS media queries.
+                  </p>
+
+                  <div class="d-flex gap-2 mt-3">
+                    <a href="#" class="btn btn-sm btn-outline-primary">
+                      <i class="fab fa-github me-1"></i> Source Code
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Experience & Education</h2>
+
+        <div class="timeline">
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-content">
+              <div class="timeline-date">September 2024 - August 2025</div>
+              <h4>Network Support Technician</h4>
+              <h5>Voimar Telecoms</h5>
+              <p>
+                Maintaining and troubleshooting network infrastructure,
+                supporting VoIP systems, and working with routers and switches.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-left">
+            <div class="timeline-content">
+              <div class="timeline-date">December 2022 -November 2023</div>
+              <h4>Desktop Support Technician</h4>
+              <h5>IEAMS Finance</h5>
+              <p>
+                Troubleshooting hardware and software issues, assisting with
+                system installations, and providing remote desktop support.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item" data-aos="fade-right">
+            <div class="timeline-content">
+              <div class="timeline-date">2018 - 2022</div>
+              <h4>
+                Bachelor's Degree in Computer Science & Information Systems
+              </h4>
+              <h5>University of Venda</h5>
+              <p>
+                Graduated with a focus on software development, data analysis,
+                and information systems management.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section-title" data-aos="fade-up">Get In Touch</h2>
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="contact-form" data-aos="zoom-in">
+              <form>
+                <div class="row">
+                  <div class="col-md-6">
+                    <input
+                      type="text"
+                      class="form-control"
+                      placeholder="Your Name"
+                      required
+                    />
+                  </div>
+                  <div class="col-md-6">
+                    <input
+                      type="email"
+                      class="form-control"
+                      placeholder="Your Email"
+                      required
+                    />
+                  </div>
+                </div>
+                <input type="text" class="form-control" placeholder="Subject" />
+                <textarea
+                  class="form-control"
+                  rows="5"
+                  placeholder="Your Message"
+                  required
+                ></textarea>
+                <button type="submit" class="btn btn-primary w-100">
+                  Send Message
+                </button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2023 Dzhivhuho Netshedzo. All Rights Reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+
     <script>
-      AOS.init();
+      // Initialize AOS
+      AOS.init({
+        duration: 1000,
+        once: true,
+      });
 
       // Toggle Contact Info visibility
       document
@@ -138,14 +1310,30 @@
             details.style.display = "none";
           }
         });
-    </script>
-    <script>
-      fetch("navbar.html")
-        .then((response) => response.text())
-        .then((data) => {
-          document.getElementById("navbar").innerHTML = data;
+
+      // CV Download functionality
+      document
+        .getElementById("downloadCVBtn")
+        .addEventListener("click", function () {
+          const link = document.createElement("a");
+          link.href = "Dzhivhuho-Netshedzo-CV.docx";
+          link.download = "Dzhivhuho-Netshedzo-CV.docx";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
         });
+
+      // Navbar scroll effect
+      window.addEventListener("scroll", function () {
+        if (window.scrollY > 50) {
+          document.querySelector(".navbar").style.padding = "10px 0";
+          document.querySelector(".navbar").style.boxShadow =
+            "0 5px 15px rgba(0, 0, 0, 0.1)";
+        } else {
+          document.querySelector(".navbar").style.padding = "15px 0";
+          document.querySelector(".navbar").style.boxShadow = "none";
+        }
+      });
     </script>
-    <script src="index.js"></script>
   </body>
 </html>
